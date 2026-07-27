@@ -1,0 +1,46 @@
+Table users {
+  id uuid [pk]
+  email varchar [not null, unique]
+  name varchar [not null]
+  created_at timestamptz [not null]
+  updated_at timestamptz [not null]
+}
+
+Table batteries {
+  id uuid [pk]
+  user_id uuid [not null, unique]
+
+  cell_voltage float [not null]
+  pack_voltage float [not null]
+  current float [not null]
+  battery_temp float [not null]
+  state_of_charge float [not null]
+  cycle_count int [not null]
+  charging_or_discharging float [not null]
+
+  created_at timestamptz [not null]
+  updated_at timestamptz [not null]
+}
+
+Table causes {
+  id uuid [pk]
+  battery_id uuid [not null]
+
+  cell_overvoltage boolean [not null]
+  cell_undervoltage boolean [not null]
+  cell_voltage_imbalance boolean [not null]
+  pack_overvoltage boolean [not null]
+  pack_undervoltage boolean [not null]
+  battery_over_temperature boolean [not null]
+  battery_under_temperature boolean [not null]
+  charge_over_current boolean [not null]
+  discharge_over_current boolean [not null]
+  short_circuit boolean [not null]
+  thermal_runaway_warning boolean [not null]
+
+  created_at timestamptz [not null]
+  updated_at timestamptz [not null]
+}
+
+Ref: batteries.user_id > users.id
+Ref: causes.battery_id > batteries.id
