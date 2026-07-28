@@ -1,9 +1,22 @@
-import Image from "next/image";
+import { verifySession } from '@/lib/dal';
+import Navbar from '@/components/Navbar';
 
-export default function Home() {
+export default async function Home() {
+  const session = await verifySession();
+  const firstName = session.name.trim().split(/\s+/)[0] || session.name;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      kisan kumar
+    <div className="flex min-h-screen flex-1 flex-col bg-zinc-50 font-sans dark:bg-black">
+      <Navbar userName={session.name} userEmail={session.email} />
+
+      <main className="flex flex-1 flex-col items-center justify-center gap-2 px-6 text-center">
+        <h1 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+          Welcome, {firstName}
+        </h1>
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          {session.email}
+        </p>
+      </main>
     </div>
   );
 }
