@@ -1,5 +1,4 @@
 import { verifySession } from '@/lib/dal';
-import Navbar from '@/components/Navbar';
 
 export default async function Home() {
   const session = await verifySession();
@@ -7,8 +6,6 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-screen flex-1 flex-col bg-zinc-50 font-sans dark:bg-black">
-      <Navbar userName={session.name} userEmail={session.email} />
-
       <main className="flex flex-1 flex-col items-center justify-center gap-2 px-6 text-center">
         <h1 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
           Welcome, {firstName}
