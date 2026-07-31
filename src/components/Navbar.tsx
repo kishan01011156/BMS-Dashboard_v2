@@ -43,16 +43,6 @@ export default function Navbar({ userName, userEmail }: NavbarProps) {
       )
     },
     {
-      name: 'Live Data',
-      href: '/livedata',
-      icon: (
-        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.3 8.3a3 3 0 0 1 5.4 0M6.5 5.5a7 7 0 0 1 11 0M3.7 2.7a11 11 0 0 1 16.6 0M12 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 12v9" />
-        </svg>
-      )
-    },
-    {
       name: 'Simulator',
       href: '/simulator',
       icon: (
@@ -71,15 +61,7 @@ export default function Navbar({ userName, userEmail }: NavbarProps) {
         </svg>
       )
     },
-    {
-      name: 'Profile',
-      href: '/profile',
-      icon: (
-        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-        </svg>
-      )
-    }
+    
   ];
 
   return (
